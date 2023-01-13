@@ -88,8 +88,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..." --weight=12
 
-ynh_install_app_dependencies $pkg_dependencies
-ynh_install_extra_app_dependencies --repo="deb https://packages.grafana.com/oss/deb stable main" --package="grafana" --key="https://packages.grafana.com/gpg.key"
+ynh_install_extra_app_dependencies --repo="deb https://apt.grafana.com stable main" --package="grafana" --key="https://apt.grafana.com/gpg.key"
 
 #=================================================
 # SPECIFIC UPGRADE
