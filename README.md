@@ -39,15 +39,11 @@ Metric & analytic dashboards for monitoring
 ## Documentation
 
  * Official Grafana documentation: https://grafana.com/docs/grafana/latest/
- * Official InfluxdB documentation: https://docs.influxdata.com/influxdb/
  * YunoHost documentation: If specific documentation is needed, feel free to contribute.
 
 ## YunoHost specific features
 
-* installs InfluxDB as time series database
-* if the NetData package is installed, configures NetData to feed InfluxDB every minute
 * installs Grafana as dashboard server
-* creates a Grafana Data Source to fetch data from InfluxDB (and hence NetData!)
 * creates a default dashboard to plot some data from NetData (doesn't cover every metric, can be greatly enhanced!)
 
 #### General architecture

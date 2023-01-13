@@ -32,7 +32,6 @@ if ynh_exec_warn_less yunohost service status grafana-server >/dev/null
 then
 	ynh_script_progression --message="Removing $app service integration..." --weight=1
 	yunohost service remove grafana-server
-	yunohost service remove influxdb
 fi
 
 #=================================================
@@ -65,15 +64,6 @@ ynh_remove_app_dependencies
 # REMOVE VARIOUS FILES
 #=================================================
 ynh_script_progression --message="Removing various files..."
-
-# If NetData is installed, configure it not to feed InfluxDB any more
-netdata_conf="/opt/netdata/etc/netdata/exporting.conf"
-if [[ -f "$netdata_conf" ]] ; then
-    sed -i '/^\[exporting:global\]$/,/^\[/ {
-        s/enabled = yes/enabled = no/
-        s/update every = 60/# update every = 10/
-      }' $netdata_conf
-fi
 
 ynh_secure_remove --file="/etc/grafana/grafana.ini"
 
