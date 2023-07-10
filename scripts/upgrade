@@ -90,6 +90,9 @@ ynh_script_progression --message="Upgrading dependencies..." --weight=12
 
 ynh_install_extra_app_dependencies --repo="deb https://apt.grafana.com stable main" --package="grafana" --key="https://apt.grafana.com/gpg.key"
 
+# Update Grafana LDAP authentication configuration
+cp ../conf/ldap.toml /etc/grafana
+
 #=================================================
 # SPECIFIC UPGRADE
 #=================================================
